@@ -1,5 +1,8 @@
 package net.subey.starter.example;
 
+import com.bethecoder.ascii_table.ASCIITable;
+import com.bethecoder.ascii_table.impl.CollectionASCIITableAware;
+import com.bethecoder.ascii_table.spec.IASCIITableAware;
 import net.subey.starter.example.domain.User;
 import net.subey.starter.example.repository.UserRepository;
 import net.subey.starter.example.service.UserService;
@@ -29,5 +32,8 @@ public class ExampleTest {
         userRepository.save(new User("subey"));
         List<User> items = userRepository.findAll();
         log.info(items.toString());
+        IASCIITableAware asciiTableAware =
+                new CollectionASCIITableAware<User>(items,"id", "name");
+        ASCIITable.getInstance().printTable(asciiTableAware);
     }
 }

@@ -54,6 +54,9 @@ dependencies {
 
     compile "org.postgresql:postgresql"
 
+
+    compile 'com.bethecoder:ascii_table:1.0-SNAPSHOT'
+
     testCompile group: 'junit', name: 'junit', version: '4.12'
     testCompile "org.springframework.boot:spring-boot-test"
     testCompile "org.springframework:spring-test"
