@@ -1,0 +1,11 @@
+spring:
+    datasource:
+        username:
+        password:
+    jpa:
+        hibernate:
+            ddl-auto: create
+            #ddl-auto: none
+logging:
+    level:
+        net.subey: DEBUG

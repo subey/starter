@@ -1,0 +1,39 @@
+spring:
+    application:
+       name: starter
+    main:
+        banner-mode: "off"
+    jackson:
+        serialization.write_dates_as_timestamps: false
+        serialization.indent_output: true
+    jmx.default-domain: starter
+    datasource:
+        type: com.zaxxer.hikari.HikariDataSource
+        url: jdbc:postgresql://localhost:5432/starter
+        name:
+        username: postgres
+        password:
+        hikari.poolName: starterpool
+    jpa:
+        database: POSTGRESQL
+        show-sql: false
+        hibernate:
+            #create none update
+            ddl-auto: update
+            use-new-id-generator-mappings: true
+            naming:
+              strategy: org.springframework.boot.orm.jpa.hibernate.SpringNamingStrategy
+        properties:
+            hibernate.cache.use_second_level_cache: false
+            hibernate.cache.use_query_cache: false
+            hibernate.generate_statistics: false
+            hibernate.id.new_generator_mappings: true
+
+logging:
+    level:
+        org.hibernate: INFO
+        org.apache: WARN
+        org.jboss: WARN
+        org.springframework: WARN
+        com.zaxxer: WARN
+        net.subey: INFO
