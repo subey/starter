@@ -1,5 +1,8 @@
 package net.subey.starter.example.domain;
 
+import net.subey.starter.scg.annotation.Dictionary;
+import net.subey.starter.scg.annotation.DictionaryItem;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -16,6 +19,12 @@ public class User {
     private String name;
 
     private LocalDateTime lastLogin;
+
+    @Dictionary(key = "user_types", value = {
+            @DictionaryItem(key = "1", value = "normal"),
+            @DictionaryItem(key = "2", value = "admin")
+    })
+    private Integer type;
 
     public User() {
     }
@@ -48,12 +57,21 @@ public class User {
         this.lastLogin = lastLogin;
     }
 
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", lastLogin=" + lastLogin +
+                ", type=" + type +
                 '}';
     }
 }

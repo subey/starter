@@ -1,0 +1,6 @@
+## {{entityClass}}
+
+Fields:
+{% for item in entityClass.getDeclaredFields %}- {{item.getName}}
+{% endfor %}
+
